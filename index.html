@@ -177,8 +177,17 @@ a:hover { color: var(--forest-hover); }
   text-decoration: none; transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-light { background: var(--forest); color: var(--cream-text); }
-.btn-light:hover { background: var(--forest-hover); color: #fff; }
+.btn-light {
+  background: var(--forest);
+  color: var(--cream-text);
+  border-color: var(--forest) !important;
+  box-shadow: 0 2px 8px rgba(28, 52, 39, 0.06);
+}
+.btn-light:hover {
+  background: var(--card);
+  color: var(--forest);
+  border-color: rgba(28, 52, 39, 0.24) !important;
+}
 .btn-ghost {
   background: transparent; color: var(--forest);
   border: 1.5px solid rgba(28, 52, 39, 0.35);
