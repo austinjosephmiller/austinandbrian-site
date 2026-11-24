@@ -204,10 +204,23 @@ a:hover { color: var(--forest-hover); }
 .socials a {
   display: flex; width: 42px; height: 42px; align-items: center; justify-content: center;
   border-radius: 50%; background: var(--card); color: var(--forest); text-decoration: none;
-  border: 1px solid var(--line-warm);
-  box-shadow: 0 1px 2px rgba(28, 52, 39, 0.04);
+  border: 1.5px solid rgba(28, 52, 39, 0.22);
+  box-shadow: 0 2px 6px rgba(28, 52, 39, 0.07);
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-.socials a:hover { background: var(--forest); color: var(--cream-text); border-color: var(--forest); }
+.socials a:hover, .socials a:focus-visible {
+  background: var(--forest);
+  color: var(--cream-text);
+  border-color: var(--forest);
+  transform: translateY(-3px) scale(1.12);
+  box-shadow: 0 6px 16px rgba(28, 52, 39, 0.25);
+  outline: 2px solid rgba(28, 52, 39, 0.18);
+  outline-offset: 2px;
+}
+.socials a:active {
+  transform: translateY(-1px) scale(1.04);
+}
 .socials svg { width: 24px; height: 24px; fill: currentColor; }
 
 .hero-photo { position: relative; }
@@ -492,7 +505,37 @@ section h2 {
 .partner-card:nth-child(-n+2) {
   border-bottom: 1px solid rgba(246, 244, 238, 0.14);
 }
-.partner-card h3 { margin: 0 0 8px; font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--cream-text); }
+.partner-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--cream-text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.partner-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(246, 244, 238, 0.1);
+  border: 1px solid rgba(246, 244, 238, 0.22);
+  color: var(--cream-text);
+}
+.partner-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .partner-card p { margin: 0; font-size: 0.98rem; line-height: 1.55; color: rgba(246, 244, 238, 0.8); }
 .inquiry {
   background: var(--cream);
@@ -507,9 +550,17 @@ section h2 {
 .type-opt { position: relative; }
 .type-opt input { position: absolute; opacity: 0; pointer-events: none; }
 .type-opt label {
-  display: block; text-align: center; border: 1.5px solid var(--line-warm); border-radius: 12px;
-  padding: 12px 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer; background: #fff;
+  display: block; text-align: center; border: 1.5px solid rgba(28, 52, 39, 0.24); border-radius: 12px;
+  padding: 12px 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer; background: var(--card);
   color: var(--forest);
+  box-shadow: 0 2px 8px rgba(28, 52, 39, 0.06);
+  transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+}
+.type-opt label:hover {
+  background: var(--forest);
+  color: var(--cream-text);
+  border-color: var(--forest);
+  transform: translateY(-1px);
 }
 .type-opt input:focus-visible + label { outline: 2px solid var(--forest); outline-offset: 2px; }
 .type-opt input:checked + label { background: var(--forest); color: var(--cream-text); border-color: var(--forest); }
@@ -1144,19 +1195,19 @@ footer p a { font-weight: 600; color: var(--cream-text); }
         <p class="section-kicker">Every partnership is tailored to your goals. Reach out for rates and availability.</p>
         <div class="partnerships">
           <article class="partner-card">
-            <h3>Lifestyle Partnerships</h3>
+            <h3><span class="partner-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9.5l-4.7 1.9L12 16l-1.8-4.6L5.5 9.5l4.7-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/><path d="M5 17l.6 1.4L7 19l-1.4.6L5 21l-.6-1.4L3 19l1.4-.6L5 17z"/></svg></span>Lifestyle Partnerships</h3>
             <p>Reels, TikToks, Carousels, and Stories featuring your brand — shared with our audience of 188k followers.</p>
           </article>
           <article class="partner-card">
-            <h3>Travel Partnerships</h3>
+            <h3><span class="partner-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>Travel Partnerships</h3>
             <p>Hotel Stays, Destinations, Restaurants, and Experiences — captured in vlogs and photo features.</p>
           </article>
           <article class="partner-card">
-            <h3>Home Renovation Partnerships</h3>
+            <h3><span class="partner-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/><path d="M9 21v-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6"/></svg></span>Home Renovation Partnerships</h3>
             <p>Product placement and features in our Seattle home renovation project.</p>
           </article>
           <article class="partner-card">
-            <h3>User-Generated Content</h3>
+            <h3><span class="partner-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></span>User-Generated Content</h3>
             <p>Custom videos for your own channels and ads.</p>
           </article>
         </div>
